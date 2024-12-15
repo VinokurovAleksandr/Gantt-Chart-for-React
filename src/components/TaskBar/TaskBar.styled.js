@@ -4,6 +4,7 @@ const TaskRow = styled.div`
     display: flex;
     align-items: center;
     margin: 10px 0;
+
 `;
 
 
@@ -14,6 +15,7 @@ const TaskLabel = styled.div`
     padding-right: 10px;
     text-align: right;
     color: #555;
+
 `;
 
 
@@ -25,6 +27,10 @@ const TaskBarContainer = styled.div`
     border: 1px solid #ddd;
     border-radius: 5px;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+        height: 70px;
+    }
 `;
 
 
@@ -44,13 +50,27 @@ const TaskBarStyled = styled.div`
         cursor: pointer;
         transition: background 0.3s ease;
     }
+   
 `;
 
 
 const TaskBarText = styled.span`
-    color: white;
+    color: #ffffff;
     font-size: 12px;
     font-weight: bold;
+    padding: 5px;
+
+    @media (max-width: 768px) {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    @media (max-width: 480px) {
+        /* display: none; */
+        font-size: 10px;
+    }
 `;
+
+
 
 export {TaskRow, TaskLabel,TaskBarContainer,TaskBarStyled,TaskBarText }

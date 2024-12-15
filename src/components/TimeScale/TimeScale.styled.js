@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const ScaleContainer = styled.div`
     display: flex;
     border-bottom: 1px solid #ddd;
+
 `;
 
 const TimeCell = styled.div`
@@ -18,6 +19,14 @@ const TimeCell = styled.div`
 
     &:last-child {
         border-right: none;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 10px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 8px;
     }
 `;
 
