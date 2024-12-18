@@ -10,7 +10,7 @@ const ScaleContainer = styled.div`
 const TimeCell = styled.div`
     flex: 1;
     text-align: center;
-    padding: 8px 2px;
+    padding: 8px 5px;
     font-size: 8px;
     font-weight: bold;
     background: #f3f3f3;

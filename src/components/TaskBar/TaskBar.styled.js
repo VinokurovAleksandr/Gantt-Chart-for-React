@@ -4,7 +4,7 @@ const TaskRow = styled.div`
     display: flex;
     align-items: center;
     margin: 10px 0;
-
+    
 `;
 
 
@@ -15,6 +15,7 @@ const TaskLabel = styled.div`
     padding-right: 10px;
     text-align: right;
     color: #555;
+    padding: 0 5px;
 
 `;
 
@@ -29,7 +30,8 @@ const TaskBarContainer = styled.div`
     overflow: hidden;
 
     @media (max-width: 768px) {
-        height: 70px;
+        height: 40px;
+        
     }
 `;
 
@@ -63,7 +65,7 @@ const TaskBarStyled = styled.div`
     justify-content: space-between;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: left 0.1s ease, width 0.1s ease;
-
+    padding: 0 10px;
     &:hover {
         background: ${(props) => props.hoverColor};
         cursor: pointer;
