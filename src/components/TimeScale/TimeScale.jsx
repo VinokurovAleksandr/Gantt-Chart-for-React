@@ -6,9 +6,6 @@ import {
 } from './TimeScale.styled';
 
 
-
-
-
 const TimeScale = ({ dateRange }) => {
     return (
         <ScaleContainer>
@@ -21,3 +18,5 @@ const TimeScale = ({ dateRange }) => {
 
 
 export default TimeScale;
+
+

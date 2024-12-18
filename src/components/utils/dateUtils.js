@@ -1,3 +1,6 @@
+import { format, addDays, differenceInDays } from 'date-fns';
+
+
 export const getDateRange = (startDate, endDate) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
@@ -10,6 +13,8 @@ export const getDateRange = (startDate, endDate) => {
 
     return dates;
 };
+
+
 
 export const calculateBarPosition = (task, dateRange) => {
     const taskStart = new Date(task.startDate);
@@ -24,5 +29,32 @@ export const calculateBarPosition = (task, dateRange) => {
 
     return { left, width };
 };
+
+export const extendDateRange = (currentRange, newStartDate, newEndDate) => {
+
+    const currentStart = currentRange[0];
+    const currentEnd = currentRange[currentRange.length - 1];
+
+
+    const updatedStart = newStartDate < currentStart ? newStartDate : currentStart;
+    const updatedEnd = newEndDate > currentEnd ? newEndDate : currentEnd;
+
+    return getDateRange(updatedStart, updatedEnd);
+};
+
+
+export const calculateDateFromPosition = (position, containerWidth, dateRange) => {
+    const totalDays = differenceInDays(new Date(dateRange[dateRange.length - 1]), new Date(dateRange[0]));
+    const dayPerPixel = totalDays / containerWidth;
+
+    const dayOffset = Math.round(position * dayPerPixel);
+    const newDate = addDays(new Date(dateRange[0]), dayOffset);
+
+    return format(newDate, 'yyyy-MM-dd');
+};
+
+
+
+
 
 

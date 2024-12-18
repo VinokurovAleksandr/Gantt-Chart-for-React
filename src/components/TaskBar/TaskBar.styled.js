@@ -9,8 +9,8 @@ const TaskRow = styled.div`
 
 
 const TaskLabel = styled.div`
-    width: 150px;
-    font-size: 14px;
+    width: 120px;
+    font-size: 12px;
     font-weight: bold;
     padding-right: 10px;
     text-align: right;
@@ -34,6 +34,25 @@ const TaskBarContainer = styled.div`
 `;
 
 
+// const TaskBarStyled = styled.div`
+//     position: absolute;
+//     height: 100%;
+//     background: ${(props) => props.color};
+//     border-radius: 5px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+//     animation: fadeIn 0.5s ease-in;
+
+//     &:hover {
+//         background: ${(props) => props.hoverColor};
+//         cursor: pointer;
+//         transition: background 0.3s ease;
+//     }
+   
+// `;
+
 const TaskBarStyled = styled.div`
     position: absolute;
     height: 100%;
@@ -41,18 +60,15 @@ const TaskBarStyled = styled.div`
     border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 0.5s ease-in;
+    transition: left 0.1s ease, width 0.1s ease;
 
     &:hover {
         background: ${(props) => props.hoverColor};
         cursor: pointer;
-        transition: background 0.3s ease;
     }
-   
 `;
-
 
 const TaskBarText = styled.span`
     color: #ffffff;
@@ -71,6 +87,27 @@ const TaskBarText = styled.span`
     }
 `;
 
+const Resizer = styled.div`
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    cursor: ew-resize;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 10;
+
+    &.left {
+        left: 0;
+    }
+
+    &.right {
+        right: 0;
+    }
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.3);
+    }
+`;
 
 
-export {TaskRow, TaskLabel,TaskBarContainer,TaskBarStyled,TaskBarText }
+export {TaskRow, TaskLabel,TaskBarContainer,TaskBarStyled,TaskBarText,Resizer  }
