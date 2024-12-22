@@ -1,40 +1,54 @@
 import React, { useState } from 'react';
 import TimeScale from '../TimeScale/TimeScale';
-import TaskBar from '../TaskBar/TaskBar';
-import { getDateRange, extendDateRange } from '../utils/dateUtils';
+import TaskList from '../TaskList/TaskList';
+import { getDateRange } from '../utils/dateUtils';
+import { ChartContainer } from './GanttChart.styled';
 
-import { ChartContainer, TaskList } from '../GantChart/GanttChart.styled';
 
-const GanttChart = ({ tasks: initialTasks, startDate, endDate }) => {
+
+const GanttChart = ({ initialTasks, startDate, endDate }) => {
+    
     const [tasks, setTasks] = useState(initialTasks);
-    const [dateRange, setDateRange] = useState(getDateRange(startDate, endDate));
+    const dateRange = startDate && endDate ? getDateRange(startDate, endDate) : [];
+
 
     const handleTaskUpdate = (updatedTask) => {
         setTasks((prevTasks) =>
             prevTasks.map((task) =>
-                task.id === updatedTask.id ? updatedTask : task
+                task.id === updatedTask.id
+                    ? { ...task, ...updatedTask }
+                    : {
+                          ...task,
+                          subtasks: task.subtasks?.map((subtask) =>
+                              subtask.id === updatedTask.id ? { ...subtask, ...updatedTask } : subtask
+                          ),
+                      }
             )
         );
+    };
 
-        const newDateRange = extendDateRange(dateRange, updatedTask.startDate, updatedTask.endDate);
-        if (newDateRange.length !== dateRange.length) {
-            setDateRange(newDateRange);
-        }
+    const handleSubtaskAdd = (newSubtask) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) =>
+                task.id === newSubtask.parentId
+                    ? {
+                          ...task,
+                          subtasks: task.subtasks ? [...task.subtasks, newSubtask] : [newSubtask],
+                      }
+                    : task
+            )
+        );
     };
 
     return (
         <ChartContainer>
             <TimeScale dateRange={dateRange} />
-            <TaskList>
-                {tasks.map((task) => (
-                    <TaskBar
-                        key={task.id}
-                        task={task}
-                        dateRange={dateRange}
-                        onTaskUpdate={handleTaskUpdate}
-                    />
-                ))}
-            </TaskList>
+            <TaskList
+                tasks={tasks}
+                dateRange={dateRange}
+                onTaskUpdate={handleTaskUpdate}
+                onSubtaskAdd={handleSubtaskAdd}
+            />
         </ChartContainer>
     );
 };

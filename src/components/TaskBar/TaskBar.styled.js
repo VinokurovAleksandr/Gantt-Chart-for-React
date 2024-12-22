@@ -36,25 +36,6 @@ const TaskBarContainer = styled.div`
 `;
 
 
-// const TaskBarStyled = styled.div`
-//     position: absolute;
-//     height: 100%;
-//     background: ${(props) => props.color};
-//     border-radius: 5px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-//     animation: fadeIn 0.5s ease-in;
-
-//     &:hover {
-//         background: ${(props) => props.hoverColor};
-//         cursor: pointer;
-//         transition: background 0.3s ease;
-//     }
-   
-// `;
-
 const TaskBarStyled = styled.div`
     position: absolute;
     height: 100%;
