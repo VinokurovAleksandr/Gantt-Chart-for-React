@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Gantt-Chart-for-React/static/css/main.e6c13ad2.css",
-    "main.js": "/Gantt-Chart-for-React/static/js/main.d2eea2c4.js",
+    "main.js": "/Gantt-Chart-for-React/static/js/main.a03008f0.js",
     "index.html": "/Gantt-Chart-for-React/index.html",
     "main.e6c13ad2.css.map": "/Gantt-Chart-for-React/static/css/main.e6c13ad2.css.map",
-    "main.d2eea2c4.js.map": "/Gantt-Chart-for-React/static/js/main.d2eea2c4.js.map"
+    "main.a03008f0.js.map": "/Gantt-Chart-for-React/static/js/main.a03008f0.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.d2eea2c4.js"
+    "static/js/main.a03008f0.js"
   ]
 }
